@@ -5,7 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import "../global.css"
+import "../global.css";
+import { TempoDevtools } from "tempo-devtools";
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -17,6 +18,12 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_TEMPO) {
+      TempoDevtools.init();
+    }
+  }, []);
 
   useEffect(() => {
     if (loaded) {
