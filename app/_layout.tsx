@@ -20,7 +20,7 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_TEMPO) {
+    if (process.env.EXPO_PUBLIC_TEMPO) {
       TempoDevtools.init();
     }
   }, []);
