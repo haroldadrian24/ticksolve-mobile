@@ -1,8 +1,6 @@
-import { View } from "react-native";
-
 export default function HomeScreen() {
   return (
-    <View>
-    </View>
+    <div className="w-full h-full">
+    </div>
   );
 }
