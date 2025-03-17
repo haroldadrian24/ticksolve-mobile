@@ -3,8 +3,13 @@ const { withNativeWind } = require("nativewind/metro");
 
 const config = getDefaultConfig(__dirname);
 
-config.watchFolders = [__dirname].filter(
-  (folder) => !folder.includes("node_modules"),
-);
+// Exclude node_modules from the resolver
+config.resolver = {
+  ...config.resolver,
+  blockList: [
+    ...config.resolver.blockList || [],
+    /node_modules\/.*/,
+  ]
+};
 
 module.exports = withNativeWind(config, { input: "./global.css" });
