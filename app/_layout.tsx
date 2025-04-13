@@ -40,12 +40,13 @@ export default function RootLayout() {
     <ThemeProvider value={DefaultTheme}>
       <Stack
         screenOptions={({ route }) => ({
-          headerShown: !route.name.startsWith("tempobook"),
+          headerShown: !route.name.startsWith("ticksolve"),
         })}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="dashboard" options={{ headerShown: false }} />
       </Stack>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </ThemeProvider>
   );
 }
