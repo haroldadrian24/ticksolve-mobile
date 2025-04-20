@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
   Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
@@ -13,19 +12,7 @@ import TicketForm from "../components/TicketForm";
 import TicketDetail from "../components/TicketDetail";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-
-type TicketStatus = "open" | "in-progress" | "resolved" | "closed" | "pending";
-
-type Ticket = {
-  id: string;
-  title: string;
-  description: string;
-  status: TicketStatus;
-  priority: "low" | "medium" | "high";
-  category: string;
-  createdAt: string;
-  updatedAt: string;
-};
+import { Ticket } from "../types/Ticket";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -164,34 +151,34 @@ export default function Dashboard() {
 
           {/* Content based on active tab */}
           {activeTab === "dashboard" && !selectedTicket && !showTicketForm && (
-            <>
-              <Text className="text-2xl font-semibold mb-4 text-gray-700">
-                Recent Tickets
-              </Text>
-              <ScrollView className="flex-1">
-                <TicketList
-                  tickets={tickets}
-                  onTicketPress={handleTicketSelect}
-                  emptyMessage="No tickets yet."
-                />
-              </ScrollView>
-            </>
-          )}
+  <>
+    <Text className="text-2xl font-semibold mb-4 text-gray-700">
+      Recent Tickets
+    </Text>
+    <View className="flex-1">
+      <TicketList
+        tickets={tickets}
+        onTicketPress={handleTicketSelect}
+        emptyMessage="No tickets yet."
+      />
+    </View>
+  </>
+)}
 
-          {activeTab === "history" && !selectedTicket && !showTicketForm && (
-            <>
-              <Text className="text-2xl font-semibold mb-4 text-gray-700">
-                Ticket History
-              </Text>
-              <ScrollView className="flex-1">
-                <TicketList
-                  tickets={tickets}
-                  onTicketPress={handleTicketSelect}
-                  emptyMessage="No ticket history available."
-                />
-              </ScrollView>
-            </>
-          )}
+{activeTab === "history" && !selectedTicket && !showTicketForm && (
+  <>
+    <Text className="text-2xl font-semibold mb-4 text-gray-700">
+      Ticket History
+    </Text>
+    <View className="flex-1">
+      <TicketList
+        tickets={tickets}
+        onTicketPress={handleTicketSelect}
+        emptyMessage="No ticket history available."
+      />
+    </View>
+  </>
+)}
 
           {activeTab === "profile" && !selectedTicket && !showTicketForm && (
             <View className="flex-1 justify-center items-center">

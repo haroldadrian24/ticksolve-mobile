@@ -10,12 +10,13 @@ import {
 } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
+
 interface TicketDetailProps {
   ticket?: {
     id: string;
     title: string;
     description: string;
-    status: "open" | "in-progress" | "resolved" | "closed";
+    status: "open" | "in-progress" | "resolved" | "closed" | "pending";
     priority: "low" | "medium" | "high";
     category: string;
     createdAt: string;

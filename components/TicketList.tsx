@@ -13,7 +13,8 @@ import {
   Clock,
 } from "lucide-react-native";
 
-type TicketStatus = "open" | "closed" | "pending";
+
+type TicketStatus = "open" | "in-progress" | "resolved" | "closed" | "pending";
 
 type Ticket = {
   id: string;
