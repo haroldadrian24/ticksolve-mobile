@@ -144,16 +144,12 @@ export default function Dashboard() {
       <SafeAreaView className="flex-1 bg-white">
         {/* Main Content Area */}
         <View className="flex-1 px-4 pt-4 bg-gray-50">
-          {/* Header */}
-          <View className="flex-row justify-between items-center mb-6">
-            <Text className="text-4xl font-bold text-gray-800">TickSolve</Text>
-          </View>
+        
 
-          {/* Content based on active tab */}
           {activeTab === "dashboard" && !selectedTicket && !showTicketForm && (
   <>
     <Text className="text-2xl font-semibold mb-4 text-gray-700">
-      Recent Tickets
+        Dashboard    
     </Text>
     <View className="flex-1">
       <TicketList
